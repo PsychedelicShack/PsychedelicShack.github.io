@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychedelic Shack</title>
+    <!-- Google Font for a more psychedelic feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+        }
+
+        /* Header styling */
+        .header {
+            font-size: 6rem;
+            font-weight: bold;
+            text-align: center;
+            color: #FF00FF;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px #FF00FF, 0 0 40px #FF00FF, 0 0 50px #FF00FF;
+            animation: waveText 3s ease-in-out infinite;
+        }
+
+        /* Wavy animation effect */
+        @keyframes waveText {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-15px) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(15px) rotate(5deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(-2deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        /* Optional: Adding a cool glowing background effect */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0066, #6600cc, #00ffff, #ffcc00);
+            background-size: 400% 400%;
+            animation: gradientBackground 10s ease infinite;
+            z-index: -1;
+        }
+
+        /* Animation for the background */
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+    <script>
+        // Redirect after 10 seconds
+        setTimeout(() => {
+            window.location.href = "fontext.html"; // Replace with your target URL
+        }, 3000);
+    </script>
+</head>
+<body>
+
+    <!-- Background with psychedelic animation -->
+    <div class="background"></div>
+
+    <!-- Header with animated wavy text -->
+    <div class="header">
+        Psychedelic Shack
+    </div>
+
+</body>
+</html>
