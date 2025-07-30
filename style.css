@@ -1,0 +1,195 @@
+/*
+ * Stylesheet for the expanded Amari Bugs Out visual novel.
+ * Uses a dark sci‑fi palette with neon highlights.  Includes a
+ * start screen overlay, dialogue UI with a Next button and a
+ * container for choices.  Character sprites are positioned above
+ * the dialogue box and remain visible while the character speaks.
+ */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a0f1c;
+  color: #e0e6ed;
+}
+
+/* Start screen overlay covers entire viewport */
+#start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.start-overlay {
+  text-align: center;
+}
+
+.start-overlay h1 {
+  margin: 0 0 12px 0;
+  font-size: 48px;
+  color: #00c0ff;
+}
+
+.start-overlay .subtitle {
+  margin: 0 0 20px 0;
+  color: #8fa7c3;
+}
+
+.start-overlay button {
+  padding: 12px 24px;
+  font-size: 18px;
+  background: #14274e;
+  color: #e0e6ed;
+  border: 2px solid #00c0ff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.start-overlay button:hover {
+  background: #00c0ff;
+  color: #0a0f1c;
+}
+
+/* Game container */
+#game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Fullscreen background image */
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Character sprites.  Amari appears on the left and other speakers on the right. */
+#left-sprite, #right-sprite {
+  position: absolute;
+  bottom: 180px;
+  width: 30%;
+  max-height: 60%;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+#left-sprite {
+  left: 5%;
+  transform-origin: bottom left;
+}
+#right-sprite {
+  right: 5%;
+  transform-origin: bottom right;
+}
+
+/* Speaker highlight states */
+.active-speaker {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+.inactive-speaker {
+  filter: brightness(0.5);
+}
+
+/* Fade-in effect for dialogue text */
+#dialogue-text {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+/* Dialogue box at bottom */
+#dialogue-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 180px;
+  background: rgba(10, 15, 30, 0.8);
+  border-top: 2px solid #00c0ff;
+  /* Extra bottom padding to accommodate the Next button */
+  padding: 16px 20px 44px 20px;
+  box-sizing: border-box;
+  z-index: 2;
+  /* Keep the dialogue box positioned at the bottom of the screen.  The
+     next button is absolutely positioned inside, so we don’t set
+     position: relative here. */
+}
+
+#dialogue-box p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Speaker name styling */
+#speaker {
+  font-weight: bold;
+  color: #00c0ff;
+  margin-bottom: 6px;
+}
+
+/* Next button for advancing dialogue */
+#next-button {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  padding: 10px 16px;
+  background: #14274e;
+  color: #e0e6ed;
+  border: 2px solid #00c0ff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+#next-button:hover {
+  background: #00c0ff;
+  color: #0a0f1c;
+}
+
+/* Choices container */
+#choices {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 15, 30, 0.9);
+  border-top: 2px solid #00c0ff;
+  display: none;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 12px;
+  z-index: 3;
+}
+
+.choice-button {
+  background: #14274e;
+  color: #e0e6ed;
+  border: 2px solid #00c0ff;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.choice-button:hover {
+  background: #00c0ff;
+  color: #0a0f1c;
+}
