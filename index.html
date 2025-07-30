@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amari Bugs Out</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Start screen appears on page load.  It contains the title and a button to begin the story. -->
+  <div id="start-screen">
+    <div class="start-overlay">
+      <h1>Amari Bugs Out</h1>
+      <p class="subtitle">A choice‑driven mech pilot visual novel</p>
+      <button id="start-button">Start Game</button>
+    </div>
+  </div>
+  <!-- Main game container hidden until the Start button is pressed. -->
+  <div id="game" style="display:none;">
+    <!-- Background image covers the entire viewport -->
+    <img id="background" src="" alt="Background">
+    <!-- Left and right character sprites.  Amari is always on the left,
+         while the current speaking character appears on the right. -->
+    <img id="left-sprite" src="" alt="Left Character" style="display:none;">
+    <img id="right-sprite" src="" alt="Right Character" style="display:none;">
+    <!-- Dialogue box at the bottom showing speaker and text -->
+    <div id="dialogue-box">
+      <p id="speaker"></p>
+      <p id="dialogue-text"></p>
+      <!-- Next button to advance to the next line of dialogue -->
+      <button id="next-button" style="display:none;">Next</button>
+    </div>
+    <!-- Choices container; buttons will be injected dynamically -->
+    <div id="choices"></div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
